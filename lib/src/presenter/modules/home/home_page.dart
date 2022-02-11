@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
             _search(),
             _places(),
             _locales(),
+            _popular(),
           ],
         ),
       ),
@@ -36,17 +37,14 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color.fromARGB(255, 240, 89, 34),
-                ),
+              CircleAvatar(
+                radius: 15,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('assets/images/iu-6.jpeg'),
               ),
               SizedBox(width: 10),
               Text(
-                'Hello, KAIC!',
+                'Olá, KAIC!',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
@@ -84,12 +82,12 @@ class _HomePageState extends State<HomePage> {
 
   _search() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 33, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextTitle(title: 'Find Your Stay'),
-          SizedBox(height: 10),
+          TextTitle(title: 'Encontre seu lugar'),
+          SizedBox(height: 15),
           Row(
             children: [
               Expanded(
@@ -106,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                       Padding(
                         padding: const EdgeInsets.only(left: 18),
                         child: Text(
-                          'Search here...',
+                          'Pesquisar...',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.black,
@@ -131,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                   height: 45,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    color: Color.fromARGB(255, 240, 89, 34),
+                    color: Color.fromARGB(158, 255, 68, 0),
                   ),
                   child: Center(
                     child: Icon(
@@ -150,46 +148,43 @@ class _HomePageState extends State<HomePage> {
   }
 
   _places() {
-    return SizedBox(
-      height: 100,
-      child: Row(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.only(left: 20),
-              scrollDirection: Axis.horizontal,
-              itemCount: 6,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Colors.white,
-                        child: Text(
-                          '${index + 1}',
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: SizedBox(
+        height: 100,
+        child: Row(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.only(left: 20),
+                scrollDirection: Axis.horizontal,
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundColor: Colors.white,
+                          backgroundImage: AssetImage('assets/images/iu.jpeg'),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Pacote ${index + 1}',
                           style: TextStyle(
                             fontSize: 15,
-                            color: Colors.orange,
+                            color: Color.fromARGB(179, 255, 153, 0),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'place ${index + 1}',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.orange,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -197,12 +192,12 @@ class _HomePageState extends State<HomePage> {
   _locales() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Container(
+      child: SizedBox(
         height: 260,
-        color: Colors.blue,
         child: Row(
           children: [
             Expanded(
+              flex: 7,
               child: Column(
                 children: [
                   Padding(
@@ -210,26 +205,30 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextTitle(title: 'Our Properties'),
+                        TextTitle(title: 'Mais Visitados'),
                         Text(
-                          'View All',
+                          'Ver mais',
                           style: TextStyle(
-                              fontSize: 15,
-                              color: Color.fromARGB(255, 240, 89, 34)),
+                            fontSize: 15,
+                            color: Colors.orange,
+                          ),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(height: 5),
                   Expanded(
+                    flex: 3,
                     child: ListView.builder(
-                      padding: EdgeInsets.only(left: 20),
                       itemCount: 2,
                       scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 25),
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
+                            height: 300,
+                            width: 250,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               color: Colors.white,
@@ -239,67 +238,81 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Container(
-                                    height: 130,
+                                    height: 120,
                                     width: 220,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
                                       color: Colors.grey,
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'assets/images/iu-3.jpeg',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      color: Colors.yellow,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Misty Rock Resort',
-                                            style: TextStyle(
-                                              fontSize: 18,
-                                              color: Colors.black87,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 5),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Sky Rock Resort',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black87,
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(height: 5),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.place,
-                                                color: Colors.orange,
-                                                size: 15,
-                                              ),
-                                              Text(
-                                                'Wakanda',
-                                                style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.black45,
+                                            SizedBox(height: 5),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Icon(
+                                                  Icons.place,
+                                                  color: Colors.orange,
+                                                  size: 15,
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 25,
-                                      width: 25,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: Colors.orange,
-                                      ),
-                                      child: Center(
-                                        child: Icon(
-                                          Icons.arrow_forward_ios_outlined,
-                                          size: 14,
-                                          color: Colors.white,
+                                                Text(
+                                                  'Minas Gerais, Brasil',
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black45,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        height: 25,
+                                        width: 25,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          color: Colors.orange,
+                                        ),
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            size: 14,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
@@ -307,7 +320,7 @@ class _HomePageState extends State<HomePage> {
                         );
                       },
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -318,123 +331,142 @@ class _HomePageState extends State<HomePage> {
   }
 
   _popular() {
-    return Expanded(
-      flex: 7,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextTitle(title: 'Popular'),
-                Text(
-                  'View All',
-                  style: TextStyle(
-                      fontSize: 15, color: Color.fromARGB(255, 240, 89, 34)),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 5),
-          Expanded(
-            flex: 3,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: ListView.builder(
-                itemCount: 2,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 300,
-                      width: 250,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.white,
-                      ),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Container(
-                              height: 100,
-                              width: 220,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.grey,
-                              ),
-                            ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: SizedBox(
+        height: 230,
+        child: Row(
+          children: [
+            Expanded(
+              flex: 7,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextTitle(title: 'Popular'),
+                        Text(
+                          'Ver mais',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.orange,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Expanded(
+                    flex: 3,
+                    child: ListView.builder(
+                      itemCount: 2,
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 25),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 300,
+                            width: 250,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                            ),
+                            child: Column(
                               children: [
                                 Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 5),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Misty Rock Resort',
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.black87,
+                                  padding: const EdgeInsets.all(10),
+                                  child: Container(
+                                    height: 100,
+                                    width: 220,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: Colors.grey,
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'assets/images/iu-2.jpeg',
                                         ),
+                                        fit: BoxFit.cover,
                                       ),
-                                      SizedBox(height: 5),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Icon(
-                                            Icons.place,
-                                            color: Colors.orange,
-                                            size: 15,
-                                          ),
-                                          Text(
-                                            'Wakanda',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.black45,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 ),
-                                Container(
-                                  height: 25,
-                                  width: 25,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
-                                    color: Colors.orange,
-                                  ),
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.arrow_forward_ios_outlined,
-                                      size: 14,
-                                      color: Colors.white,
-                                    ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 5),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'New Style Resort',
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                                color: Colors.black87,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Icon(
+                                                  Icons.place,
+                                                  color: Colors.orange,
+                                                  size: 15,
+                                                ),
+                                                Text(
+                                                  'Alagoas, Brasil',
+                                                  style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.black45,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 25,
+                                        width: 25,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          color: Colors.orange,
+                                        ),
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.arrow_forward_ios_outlined,
+                                            size: 14,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
+                  )
+                ],
               ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
