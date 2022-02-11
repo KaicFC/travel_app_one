@@ -6,9 +6,9 @@
 
 ### Demonstração
 
-<img src="/screenshots/travel.png" heigth="400" width="300">
-<img src="/screenshot/splash.png" heigth="400" width="300">
-<img src="/screenshot/home.png" heigth="400" width="300">
+<img src="screenshots/travel.gif" heigth="400" width="300">
+<img src="screenshots/splash.png" heigth="400" width="300">
+<img src="screenshots/home.png" heigth="400" width="300">
 
 ### 📋 Pré-requisitos
 
@@ -55,14 +55,14 @@ flutter run
 Divirta-se!
 
 
-## Próximos passos
+### Próximos passos
 
 - Desenvolver tela de Login
 - Desenvolver tela de Detalhes
 - Adicionar animações
 
 
-## 🛠️ Construído com
+### 🛠️ Construído com
 
 * [Dart](https://dart.dev) - Linguagem de Programação.
 * [Flutter](https://flutter.dev) - Framework de Desenvolvimento.
@@ -74,7 +74,7 @@ Divirta-se!
   [Github](https://github.com/KaicFC) - [Linkedin](https://www.linkedin.com/in/kaic-carvalho/)
 
 
-## 🎁 Gratidão!
+### 🎁 Gratidão!
 
 * Espero que tenha aproveitado este projeto.
 * Obrigado pela visita.
